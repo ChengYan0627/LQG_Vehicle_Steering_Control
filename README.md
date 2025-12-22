@@ -26,13 +26,13 @@ The core of the LQG performance relies on the Kalman Filter's ability to estimat
 ## Technical Approach
 
 ### 1. Kinematic Modeling
-We utilized a linearized **Kinematic Bicycle Model** for lateral vehicle dynamics.
+We utilized a linearized Kinematic Bicycle Model for lateral vehicle dynamics.
 * **State Vector ($x$):** $[y, \theta]^T$ (Lateral position, Heading angle).
 * **Control Input ($u$):** Steering angle rate.
 * **Dynamics:** $\dot{x} = Ax + Bu$
 
 ### 2. Observability Analysis
-Before designing the estimator, we verified the system's **observability** rank to ensure all internal states could be reconstructed from the available outputs.
+Before designing the estimator, we verified the system's observability rank to ensure all internal states could be reconstructed from the available outputs.
 
 ### 3. Kalman Filter (State Estimation)
 Designed an optimal state estimator to handle:
@@ -46,5 +46,5 @@ $$J = \int_{0}^{\infty} (x^T Q x + u^T R u) dt$$
 This balances the trade-off between **trajectory tracking error** and **control effort** (steering aggressiveness).
 
 ### 5. LQG Integration (Output Feedback)
-The separation principle was applied to combine the estimator and controller into a unified **Output Feedback Control** law:
+The separation principle was applied to combine the estimator and controller into a unified Output Feedback Control law:
 $$u = -K \hat{x}$$
