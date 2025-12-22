@@ -10,17 +10,17 @@ In real-world autonomous driving, sensors (GPS/IMU) are noisy, and full state in
 
 ### 1. Baseline Performance (LQR)
 The system was first tested under ideal, noise-free conditions to establish a performance benchmark.
-![LQR Baseline]()
+![LQR Baseline](https://github.com/ChengYan0627/LQG_Vehicle_Steering_Control/blob/main/LQR.png)
 > **Observation:** The LQR controller achieves zero-error tracking of the sinusoidal reference path, verifying the model dynamics.
 
 ### 2. Robust Tracking under Noise (LQG)
 Gaussian white noise was introduced to both process (wind/disturbance) and measurement (sensor noise) channels.
-![LQG Tracking]()
+![LQG Tracking](https://github.com/ChengYan0627/LQG_Vehicle_Steering_Control/blob/main/LQG.png)
 > **Observation:** Despite noisy sensor data, the vehicle (Red) successfully tracks the reference path (Black). The LQG controller effectively filters out noise to prevent instability.
 
 ### 3. State Estimation Accuracy
 The core of the LQG performance relies on the Kalman Filter's ability to estimate the true state.
-![Kalman Filter]()
+![Kalman Filter](https://github.com/ChengYan0627/LQG_Vehicle_Steering_Control/blob/main/Kalmen.png)
 > **Observation:** The Estimated State (Dashed) overlaps closely with the Ground Truth (Solid), proving that the Kalman Filter is correctly tuned to recover the true vehicle dynamics from noisy outputs.
 
 ## Technical Approach
